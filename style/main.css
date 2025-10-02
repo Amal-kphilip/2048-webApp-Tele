@@ -533,6 +533,13 @@ hr {
 .game-explanation {
   margin-top: 50px; }
 
+.game-credit {
+  margin-top: 50px; 
+  text-align: center;
+  color: #776e65; 
+  font-size: 16px; 
+}
+
 @media screen and (max-width: 520px) {
   html, body {
     font-size: 15px; }
@@ -569,15 +576,10 @@ hr {
     display: block;
     box-sizing: border-box;
     margin-top: 2px; }
-    .game-credit {
-  margin-top: 50px; 
-  text-align: center; /* THIS IS THE KEY LINE */
-  color: #776e65; 
-  font-size: 16px; 
-}
-      .game-credit {
-    margin-top: 30px; /* Reduced space for mobile */
-    font-size: 14px; /* Slightly smaller text for mobile */
+
+  .game-credit {
+    margin-top: 30px;
+    font-size: 14px;
     text-align: center;
   }
 
