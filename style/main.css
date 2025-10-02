@@ -569,6 +569,10 @@ hr {
     display: block;
     box-sizing: border-box;
     margin-top: 2px; }
+      .game-credit {
+    margin-top: 30px; /* Reduced space for mobile */
+    font-size: 14px; /* Slightly smaller text for mobile */
+  }
 
   .game-container {
     margin-top: 17px;
