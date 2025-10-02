@@ -1,0 +1,114 @@
+// Fixed exponent function with better handling of edge cases
+@function exponent($base, $exponent) {
+  // Handle zero exponent
+  @if $exponent == 0 {
+    @return 1;
+  }
+  
+  // Handle positive exponents
+  @if $exponent > 0 {
+    $value: $base;
+    @for $i from 2 through $exponent {
+      $value: $value * $base;
+    }
+    @return $value;
+  }
+  
+  // Handle negative exponents
+  @if $exponent < 0 {
+    $value: 1;
+    @for $i from 1 through -$exponent {
+      $value: $value / $base;
+    }
+    @return $value;
+  }
+}
+
+@function pow($base, $exponent) {
+  @return exponent($base, $exponent);
+}
+
+// Transition mixins
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  transition: $args;
+}
+
+@mixin transition-property($args...) {
+  -webkit-transition-property: $args;
+  -moz-transition-property: $args;
+  transition-property: $args;
+}
+
+@mixin animation($args...) {
+  -webkit-animation: $args;
+  -moz-animation: $args;
+  animation: $args;
+}
+
+@mixin animation-fill-mode($args...) {
+  -webkit-animation-fill-mode: $args;
+  -moz-animation-fill-mode: $args;
+  animation-fill-mode: $args;
+}
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  transform: $args;
+}
+
+// Keyframe animations
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// Media queries - improved naming
+@mixin smaller($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin larger($width) {
+  @media screen and (min-width: #{$width + 1px}) {
+    @content;
+  }
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Additional useful mixins
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
